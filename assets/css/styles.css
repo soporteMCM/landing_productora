@@ -1,0 +1,677 @@
+/* 
+   Productora Cultiva - Estilos personalizados
+   Creado: Mayo 2025
+*/
+
+/* Variables globales */
+:root {
+    --primary-color: #810000;
+    --primary-dark: #212121;
+    --primary-light: #cd0000;
+    --secondary-color: #ff9800;
+    --dark-color: #212121;
+    --light-color: #f5f5f5;
+    --gray-color: #757575;
+    --white-color: #ffffff;
+    --section-padding: 0;
+    --transition: all 0.3s ease;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+/* Reset y estilos base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--dark-color);
+    overflow-x: hidden;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.section {
+    padding: 100px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.section:nth-child(odd) {
+    background-color: var(--white-color);
+}
+
+.section:nth-child(even) {
+    background-color: var(--light-color);
+}
+
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+    background: var(--primary-color);
+}
+
+.fp-tooltip {
+    color: var(--primary-color) !important;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.section-header.text-center .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botones */
+.btn {
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: 500;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* Header y Navegación */
+.header {
+    height: 80px;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 15px 0;
+    transition: var(--transition);
+}
+
+.navbar-brand img.logo-img {
+    height: 50px;
+    transition: var(--transition);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--dark-color);
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: var(--transition);
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--primary-color);
+}
+
+/* Inicio Section */
+.inicio-section {
+    display: flex;
+    align-items: center;
+    background-color: var(--white-color);
+}
+
+.inicio-content {
+    margin-bottom: 30px;
+}
+
+.inicio-content .subtitle {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.inicio-content .title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.inicio-content .slogan {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--gray-color);
+    margin-bottom: 20px;
+}
+
+.inicio-content .description {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    margin-bottom: 30px;
+    max-width: 550px;
+}
+
+.inicio-image {
+    position: relative;
+    z-index: 1;
+}
+
+.inicio-image img {
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Productos Section */
+.productos-section {
+    position: relative;
+}
+
+.producto-info {
+    padding: 30px;
+}
+
+.producto-title {
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.producto-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.producto-description {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    margin-bottom: 25px;
+}
+
+.producto-features {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.producto-features li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.producto-features li i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--primary-color);
+}
+
+.producto-image img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Filosofía Section */
+.filosofia-section {
+    position: relative;
+}
+
+.philosophy-card,
+.value-card {
+    text-align: center;
+    padding: 40px 30px;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    height: 100%;
+    margin-bottom: 30px;
+}
+
+.philosophy-card:hover,
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    color: var(--gray-color);
+}
+
+.valores-title {
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 30px;
+}
+
+/* Nosotros Section */
+.nosotros-section {
+    position: relative;
+}
+
+.nosotros-image img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.nosotros-content {
+    padding: 30px;
+}
+
+.nosotros-content p {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    margin-bottom: 20px;
+}
+
+/* Elegirnos Section */
+.elegirnos-section {
+    position: relative;
+}
+
+.reason-card {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.reason-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.reason-icon {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.reason-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.reason-text {
+    color: var(--gray-color);
+}
+
+/* Puntos de Atención Section */
+.puntos-section {
+    position: relative;
+}
+
+.offices-map {
+    margin-bottom: 50px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.office-item {
+    background-color: var(--white-color);
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    text-align: center;
+    font-weight: 500;
+    transition: var(--transition);
+    height: 100%;
+}
+
+.office-item:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
+}
+
+/* Contacto Section */
+.contacto-section {
+    position: relative;
+}
+
+.contact-form-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 40px;
+}
+
+.form-control {
+    height: auto;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+.contact-info-card {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.info-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.info-text {
+    color: var(--gray-color);
+}
+
+/* Footer */
+.footer-section {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 20px 0;
+}
+
+.footer-section p {
+    margin-bottom: 0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white-color);
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    transform: translateY(-3px);
+}
+
+/* Pageable Styles */
+.pageable-container {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.pg-page {
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.pg-page:nth-child(odd) {
+    background-color: var(--white-color);
+}
+
+.pg-page:nth-child(even) {
+    background-color: var(--light-color);
+}
+
+.pg-wrapper {
+    height: 100vh;
+}
+
+.pg-pips {
+    right: 20px;
+}
+
+.pg-pips a {
+    margin: 10px 0;
+    width: 12px;
+    height: 12px;
+    position: relative;
+}
+
+.pg-pips a::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.pg-pips a.active::before {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+    .section {
+        padding: 70px 0;
+    }
+
+    .inicio-content .title {
+        font-size: 2.8rem;
+    }
+
+    .inicio-content .slogan {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .producto-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .section {
+        padding: 50px 0;
+    }
+
+    .inicio-content {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .inicio-content .title {
+        font-size: 2.3rem;
+    }
+
+    .inicio-content .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .producto-title {
+        font-size: 1.8rem;
+    }
+
+    .philosophy-card,
+    .value-card,
+    .reason-card,
+    .contact-info-card {
+        margin-bottom: 30px;
+    }
+
+    .contact-form-card {
+        padding: 30px 20px;
+    }
+
+    .social-links {
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .inicio-content .title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .producto-title {
+        font-size: 1.5rem;
+    }
+}

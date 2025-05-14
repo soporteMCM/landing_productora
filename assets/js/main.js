@@ -19,6 +19,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
+    const sucursales = document.querySelector("#sucursales-lista")
+    sucursales.addEventListener("touchstart", (e) => {
+        e.stopPropagation()
+    })
+
+    sucursales.addEventListener("mouseenter", (e) => {
+        pageable.events.wheel = false
+    })
+
+    sucursales.addEventListener("mouseleave", (e) => {
+        pageable.events.wheel = true
+    })
+
+    sucursales.addEventListener("scroll", (e) => {
+        e.stopPropagation()
+    })
+
     const contactoFrm = document.getElementById("contactForm")
     contactoFrm.addEventListener("click", (e) => {
         e.stopPropagation()

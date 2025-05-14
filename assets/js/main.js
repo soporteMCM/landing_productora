@@ -1,70 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const esPantallaMovil = window.innerWidth < 992
-    const esDispTactil = "ontouchstart" in window || navigator.maxTouchPoints > 0
+    const isMobile = window.matchMedia("(max-width: 900px)").matches
 
     const pageable = new Pageable("#container", {
         // Opciones de Pageable
         childSelector: "[data-anchor]", // Selector para las páginas
-        pips: false, // Mostrar puntitos de navegación para referencia visual
+        pips: false, // Mostrar/Ocultar los puntitos de navegación
         animation: 600, // Duración de la animación en ms
-        orientation: "vertical", // Orientación de desplazamiento
-        swipeThreshold: esPantallaMovil ? 30 : 100, // Umbral más bajo para móviles
-        freeScroll: false, // Desactivar scroll libre para mejorar la navegación por secciones
-        infinite: true, // Permitir navegación cíclica (poder volver al inicio desde la última sección)
+        orientation: "vertical", // Orientación de desplazamiento (horizontal o vertical)
+        freeScroll: isMobile, // Permitir desplazamiento libre
         events: {
-            mouse: true, // Habilitar clic para navegación
-            wheel: true, // Habilitar rueda del ratón
-            touch: true // Habilitar eventos táctiles en todos los dispositivos
-        },
-        onInit: function () {
-            // Asegurarse de que los eventos están correctamente configurados al inicializar
-            this.events.wheel = true
-            this.events.mouse = true
-            this.events.touch = true
+            mouse: false // Usar clic del mouse para navegar
         },
         onFinish: (data) => {
             document.querySelectorAll(".nav-link").forEach((link, index) => {
                 if (index === data.index) link.classList.add("active")
                 else link.classList.remove("active")
             })
-        }
-    })
-
-    const contacto = document.querySelector("#contacto")
-
-    // Manejo mejorado para formularios
-    const deshabilitarEventosScroll = () => {
-        if (pageable && pageable.events) {
-            pageable.data.scrolling = false
-            pageable.events.wheel = false
-        }
-    }
-
-    const habilitarEventosScroll = () => {
-        if (pageable && pageable.events) {
-            setTimeout(() => {
-                pageable.events.wheel = true
-                pageable.data.scrolling = true
-            }, 200) // Pequeño retraso para evitar eventos conflictivos
-        }
-    }
-
-    // Eventos para el manejo del contacto en desktop
-    contacto.addEventListener("mouseenter", deshabilitarEventosScroll)
-    contacto.addEventListener("mouseleave", habilitarEventosScroll)
-
-    // Eventos para el manejo del contacto en dispositivos táctiles
-    contacto.addEventListener("touchstart", (e) => {
-        // Solo deshabilitar si es un toque específico en un campo o botón del formulario
-        if (e.target.closest(".form-control") || e.target.closest(".btn")) {
-            deshabilitarEventosScroll()
-        }
-    })
-
-    document.addEventListener("touchend", (e) => {
-        // Habilitar el scroll cuando se suelta el dedo en la sección de contacto
-        if (e.target.closest("#contacto")) {
-            habilitarEventosScroll()
         }
     })
 
@@ -78,152 +29,16 @@ document.addEventListener("DOMContentLoaded", function () {
         enviaConatacto(contacto)
     })
 
-    // Añadir botón para volver al inicio desde la sección de contacto
-    if (document.querySelector(".tarjeta-formulario-contacto")) {
-        const backToTopBtn = document.createElement("button")
-        backToTopBtn.classList.add("btn", "btn-outline-primary", "mt-3", "back-to-top-btn")
-        backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i> Volver al inicio'
-        backToTopBtn.addEventListener("click", function (e) {
-            e.preventDefault()
-            e.stopPropagation()
-            pageable.scrollToPage(0)
-        })
-
-        document.querySelector(".tarjeta-formulario-contacto").appendChild(backToTopBtn)
-    }
-
     document.querySelectorAll(".nav-link").forEach((link) => {
         link.addEventListener("click", function (e) {
             e.preventDefault()
             const target = this.getAttribute("href").substring(1)
             pageable.scrollToAnchor(target)
-
-            // Cerrar el menú móvil si está abierto
-            const navbarCollapse = document.querySelector(".navbar-collapse")
-            if (navbarCollapse && navbarCollapse.classList.contains("show")) {
-                navbarCollapse.classList.remove("show")
-            }
-        })
-    })
-
-    document.querySelectorAll(".form-control").forEach((input) => {
-        input.addEventListener("click", function (e) {
-            e.stopPropagation()
-        })
-
-        input.addEventListener("touchstart", function (e) {
-            e.stopPropagation()
-        })
-
-        input.addEventListener("focus", function (e) {
-            // Deshabilitar temporalmente el scroll durante interacción con formularios
-            if (pageable && pageable.events) {
-                pageable.events.wheel = false
-                pageable.events.touch = false
-                pageable.data.scrolling = false
-            }
-        })
-
-        input.addEventListener("blur", function (e) {
-            // Pequeño retraso para evitar conflictos con otros eventos
-            setTimeout(() => {
-                if (pageable && pageable.events) {
-                    pageable.events.wheel = true
-                    pageable.events.touch = true
-                    pageable.data.scrolling = true
-                }
-            }, 250)
         })
     })
 
     document.getElementById("telefono").addEventListener("keypress", soloNumeros)
     document.querySelector("#anio").textContent = new Date().getFullYear()
-
-    // Mejorar soporte de swipe para dispositivos móviles
-    if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
-        let startY = 0
-        let startX = 0
-        let endY = 0
-        let endX = 0
-        let startTime = 0
-        let endTime = 0
-        const swipeThreshold = 50 // Umbral para detectar un swipe
-        const swipeTimeout = 300 // Tiempo máximo para un swipe (milisegundos)
-
-        document.addEventListener(
-            "touchstart",
-            (e) => {
-                // Solo registrar si no estamos en el formulario
-                if (!e.target.closest(".form-control") && !e.target.closest("button")) {
-                    startY = e.touches[0].clientY
-                    startX = e.touches[0].clientX
-                    startTime = new Date().getTime()
-                }
-            },
-            { passive: true }
-        )
-
-        document.addEventListener(
-            "touchmove",
-            (e) => {
-                // Evitar manejo de eventos de desplazamiento en elementos de formulario
-                if (e.target.closest(".form-control") || e.target.closest("button")) {
-                    return
-                }
-
-                // En la última sección, permitir el desplazamiento normal de la página
-                const currentIndex = pageable.index
-                const isLastPage =
-                    currentIndex === document.querySelectorAll("[data-anchor]").length - 1
-
-                if (!isLastPage && !e.target.closest("#contactForm")) {
-                    e.preventDefault()
-                }
-            },
-            { passive: false }
-        )
-
-        document.addEventListener(
-            "touchend",
-            (e) => {
-                // No procesar eventos en elementos de formulario
-                if (e.target.closest(".form-control") || e.target.closest("button")) {
-                    return
-                }
-
-                endY = e.changedTouches[0].clientY
-                endX = e.changedTouches[0].clientX
-                endTime = new Date().getTime()
-
-                const deltaY = startY - endY
-                const deltaX = startX - endX
-                const elapsedTime = endTime - startTime
-
-                // Asegurarse de que es un swipe vertical y no horizontal
-                // y que ocurrió en un tiempo razonable
-                if (
-                    Math.abs(deltaY) > Math.abs(deltaX) &&
-                    Math.abs(deltaY) > swipeThreshold &&
-                    elapsedTime < swipeTimeout
-                ) {
-                    const currentIndex = pageable.index
-                    const isLastPage =
-                        currentIndex === document.querySelectorAll("[data-anchor]").length - 1
-
-                    if (deltaY > 0) {
-                        // Swipe hacia arriba - avanzar a la siguiente página
-                        if (!isLastPage) {
-                            pageable.next()
-                        }
-                    } else {
-                        // Swipe hacia abajo - volver a la página anterior
-                        pageable.prev()
-                    }
-                }
-            },
-            { passive: true }
-        )
-    }
 
     cargarSucursales()
 })
@@ -312,7 +127,7 @@ const showExito = () => {
         document.querySelectorAll(".form-control").forEach((campo) => {
             campo.classList.remove("is-valid")
         })
-        document.body.removeChild(dialogo)
+        if (dialogo) document.body.removeChild(dialogo)
     })
     setTimeout(() => {
         document.querySelector("#contactForm").reset()
@@ -322,7 +137,7 @@ const showExito = () => {
         modal.hide()
     }, 3000)
     setTimeout(() => {
-        document.body.removeChild(dialogo)
+        if (dialogo) document.body.removeChild(dialogo)
     }, 4000)
 }
 

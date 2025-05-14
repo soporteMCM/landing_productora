@@ -82,17 +82,6 @@ img {
     background-color: var(--light-color);
 }
 
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
-    background: var(--primary-color);
-}
-
-.fp-tooltip {
-    color: var(--primary-color) !important;
-    font-size: 14px;
-    font-family: "Poppins", sans-serif;
-}
-
 .section-header {
     margin-bottom: 60px;
 }

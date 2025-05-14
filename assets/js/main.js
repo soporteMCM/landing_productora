@@ -173,7 +173,6 @@ const cargarSucursales = async () => {
             const sucursalElement = document.createElement("div")
             sucursalElement.className = "sucursal-item"
             sucursalElement.textContent = sucursal.nombre
-
             sucursalElement.addEventListener("click", function () {
                 document.querySelectorAll(".sucursal-item").forEach((el) => {
                     el.classList.remove("active")

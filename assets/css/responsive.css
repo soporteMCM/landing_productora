@@ -1,7 +1,7 @@
 /* Media Queries para Responsividad */
 
 /* Dispositivos extra pequeños (teléfonos, menos de 576px) */
-@media (max-width: 575.98px) {
+@media (max-width: 575px) {
     /* Estilos para header y navegación */
     .navbar-brand img.logo-img {
         height: 40px;
@@ -121,7 +121,7 @@
 }
 
 /* Dispositivos pequeños (tablets, 576px - 767px) */
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (min-width: 576px) and (max-width: 767px) {
     /* Estilos para header y navegación */
     .navbar-brand img.logo-img {
         height: 45px;
@@ -185,7 +185,7 @@
 }
 
 /* Dispositivos medianos (tablets horizontales, 768px - 991px) */
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 991px) {
     /* Ajustes para header */
     .navbar-brand img.logo-img {
         height: 48px;
@@ -229,7 +229,7 @@
 }
 
 /* Dispositivos grandes (desktops, 992px - 1199px) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     /* Ajustes mínimos para desktop */
     .inicio-content .title {
         font-size: 3rem;

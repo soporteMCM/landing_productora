@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         freeScroll: esPantallaMovil, // Permitir desplazamiento libre en móviles
         events: {
             mouse: false, // Usar clic del mouse para navegar
-            touch: !esPantallaMovil // Deshabilitar eventos táctiles en móviles inicialmente
+            touch: esPantallaMovil // Deshabilitar eventos táctiles en móviles inicialmente
         },
         onFinish: (data) => {
             document.querySelectorAll(".nav-link").forEach((link, index) => {

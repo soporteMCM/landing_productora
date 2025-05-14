@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
         pips: false, // Mostrar/Ocultar los puntitos de navegación
         animation: 600, // Duración de la animación en ms
         orientation: "vertical", // Orientación de desplazamiento (horizontal o vertical)
+        events: {
+            mouse: false // Usar clic del mouse para navegar
+        },
         onFinish: (data) => {
             document.querySelectorAll(".nav-link").forEach((link, index) => {
                 if (index === data.index) link.classList.add("active")
@@ -12,88 +15,30 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         }
     })
-    const contactForm = document.getElementById("contactForm")
 
-    if (contactForm) {
-        contactForm.addEventListener("submit", function (e) {
-            e.preventDefault()
-
-            // Obtener los campos del formulario
-            const nameInput = document.getElementById("name")
-            const phoneInput = document.getElementById("phone")
-            const emailInput = document.getElementById("email")
-            const messageInput = document.getElementById("message")
-
-            // Validación básica
-            let isValid = true
-
-            if (nameInput.value.trim() === "") {
-                highlightField(nameInput, true)
-                isValid = false
-            } else {
-                highlightField(nameInput, false)
-            }
-
-            if (phoneInput.value.trim() === "") {
-                highlightField(phoneInput, true)
-                isValid = false
-            } else {
-                highlightField(phoneInput, false)
-            }
-
-            if (emailInput.value.trim() === "" || !isValidEmail(emailInput.value)) {
-                highlightField(emailInput, true)
-                isValid = false
-            } else {
-                highlightField(emailInput, false)
-            }
-
-            if (messageInput.value.trim() === "") {
-                highlightField(messageInput, true)
-                isValid = false
-            } else {
-                highlightField(messageInput, false)
-            }
-
-            // Si el formulario es válido, mostrar mensaje de éxito
-            // En un caso real, aquí se enviaría el formulario a un servidor
-            if (isValid) {
-                showFormSuccess()
-                contactForm.reset()
-            }
-        })
-    }
-
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        return emailRegex.test(email)
-    }
-
-    function highlightField(field, isError) {
-        if (isError) {
-            field.classList.add("is-invalid")
-            field.classList.remove("is-valid")
-        } else {
-            field.classList.remove("is-invalid")
-            field.classList.add("is-valid")
+    const contacto = document.querySelector("#contacto")
+    contacto.addEventListener("mouseenter", () => {
+        if (pageable && pageable.events) {
+            pageable.events.mouse = false
+            pageable.events.wheel = false
         }
-    }
+    })
 
-    function showFormSuccess() {
-        const formContainer = document.querySelector(".contact-form-card")
-        const successAlert = document.createElement("div")
+    contacto.addEventListener("mouseleave", () => {
+        if (pageable && pageable.events) {
+            pageable.events.wheel = true
+        }
+    })
 
-        successAlert.className = "alert alert-success mt-3"
-        successAlert.role = "alert"
-        successAlert.innerHTML =
-            "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo a la brevedad."
+    const contactoFrm = document.getElementById("contactForm")
+    contactoFrm.addEventListener("click", (e) => {
+        e.stopPropagation()
+    })
 
-        formContainer.appendChild(successAlert)
-
-        setTimeout(() => {
-            successAlert.remove()
-        }, 5000)
-    }
+    contactoFrm.addEventListener("submit", (e) => {
+        e.preventDefault()
+        enviaConatacto(contacto)
+    })
 
     document.querySelectorAll(".nav-link").forEach((link) => {
         link.addEventListener("click", function (e) {
@@ -103,14 +48,138 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     })
 
+    document.querySelectorAll(".form-control").forEach((input) => {
+        input.addEventListener("click", function (e) {
+            e.stopPropagation()
+        })
+
+        input.addEventListener("focus", function (e) {
+            pageable.events.mouse = false
+            pageable.events.wheel = false
+        })
+
+        input.addEventListener("blur", function (e) {
+            pageable.events.wheel = true
+        })
+    })
+
+    document.getElementById("telefono").addEventListener("keypress", soloNumeros)
     document.querySelector("#anio").textContent = new Date().getFullYear()
 
-    // Cargar sucursales desde JSON
     cargarSucursales()
 })
 
+// Función para enviar el formulario de contacto
+const enviaConatacto = (contacto) => {
+    const nombre = document.getElementById("nombre")
+    const telefono = document.getElementById("telefono")
+    const email = document.getElementById("email")
+    const mensaje = document.getElementById("mensaje")
+    let valido = true
+
+    if (nombre.value.trim() === "") {
+        resaltarCampo(nombre, true)
+        valido = false
+    } else {
+        resaltarCampo(nombre, false)
+    }
+
+    if (telefono.value.trim() === "") {
+        resaltarCampo(telefono, true)
+        valido = false
+    } else {
+        resaltarCampo(telefono, false)
+    }
+
+    if (email.value.trim() === "" || !validaEmail(email.value)) {
+        resaltarCampo(email, true)
+        valido = false
+    } else {
+        resaltarCampo(email, false)
+    }
+
+    if (mensaje.value.trim() === "") {
+        resaltarCampo(mensaje, true)
+        valido = false
+    } else {
+        resaltarCampo(mensaje, false)
+    }
+
+    if (valido) showExito()
+}
+
+// Función para asegurar la entrada de solo números en el campo de teléfono
+const soloNumeros = (e) => {
+    const key = e.key
+    const isNumber = /^[0-9]$/.test(key)
+    if (!isNumber && key !== "Backspace" && key !== "Delete") {
+        e.preventDefault()
+    }
+}
+
+// Función para validar el formato del email
+const validaEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+}
+
+// Función para mostrar el modal de éxito
+const showExito = () => {
+    const dialogo = document.createElement("div")
+    dialogo.className = "modal fade"
+    dialogo.id = "formSuccessModal"
+    dialogo.tabIndex = "-1"
+    dialogo.setAttribute("aria-labelledby", "formSuccessModalLabel")
+    dialogo.setAttribute("aria-hidden", "true")
+    dialogo.innerHTML = `
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formSuccessModalLabel">Éxito</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Su mensaje ha sido enviado con éxito. Nos pondremos en contacto con usted pronto.
+                </div>
+            </div>
+        </div>
+    `
+    document.body.appendChild(dialogo)
+    const modal = new bootstrap.Modal(dialogo)
+
+    modal.show()
+    dialogo.addEventListener("hidden.bs.modal", () => {
+        document.querySelector("#contactForm").reset()
+        document.querySelectorAll(".form-control").forEach((campo) => {
+            campo.classList.remove("is-valid")
+        })
+        document.body.removeChild(dialogo)
+    })
+    setTimeout(() => {
+        document.querySelector("#contactForm").reset()
+        document.querySelectorAll(".form-control").forEach((campo) => {
+            campo.classList.remove("is-valid")
+        })
+        modal.hide()
+    }, 3000)
+    setTimeout(() => {
+        document.body.removeChild(dialogo)
+    }, 4000)
+}
+
+// Función para resaltar campos de formulario
+const resaltarCampo = (campo, esError) => {
+    if (esError) {
+        campo.classList.add("is-invalid")
+        campo.classList.remove("is-valid")
+    } else {
+        campo.classList.remove("is-invalid")
+        campo.classList.add("is-valid")
+    }
+}
+
 // Función para cargar sucursales desde JSON
-async function cargarSucursales() {
+const cargarSucursales = async () => {
     try {
         const response = await fetch("assets/data/sucursales.json")
         if (!response.ok) {
@@ -124,30 +193,22 @@ async function cargarSucursales() {
         const mapaSucursal = document.getElementById("mapa-sucursal")
         if (!mapaSucursal) return
 
-        // Limpiar el contenedor
         contenedorSucursales.innerHTML = ""
 
-        // Agregar cada sucursal al listado
         data.sucursales.forEach((sucursal, index) => {
             const sucursalElement = document.createElement("div")
             sucursalElement.className = "sucursal-item"
             sucursalElement.textContent = sucursal.nombre
 
-            // Manejar el clic para cambiar el mapa
             sucursalElement.addEventListener("click", function () {
-                // Quitar la clase active de todos los elementos
                 document.querySelectorAll(".sucursal-item").forEach((el) => {
                     el.classList.remove("active")
                 })
 
-                // Añadir la clase active al elemento clicado
                 this.classList.add("active")
-
-                // Actualizar el iframe del mapa
                 mapaSucursal.src = sucursal.ubicacion
             })
 
-            // Marcar la primera sucursal como activa por defecto
             if (index === 0) {
                 sucursalElement.classList.add("active")
                 mapaSucursal.src = sucursal.ubicacion

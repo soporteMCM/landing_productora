@@ -1,0 +1,180 @@
+/* Media Queries para responsive design */
+
+/* Tablets y dispositivos medianos - Menor a 900px */
+@media (max-width: 900px) {
+    /* Estilos generales */
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Navegación */
+    .navbar-nav {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    /* Sección de Inicio */
+    .inicio-content .title {
+        font-size: 2.8rem;
+    }
+
+    .inicio-content .slogan {
+        font-size: 1.3rem;
+    }
+
+    .inicio-content .description {
+        font-size: 1rem;
+    }
+
+    .inicio-image img {
+        margin-top: 30px;
+    }
+
+    /* Botones */
+    .btn {
+        padding: 10px 25px;
+    }
+
+    /* Pageable */
+    .pg-page {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 0 50px;
+    }
+}
+
+/* Móviles medianos - Menor a 768px */
+@media (max-width: 768px) {
+    /* Estilos generales */
+    .section {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .section-description {
+        font-size: 1rem;
+    }
+
+    /* Sección de Inicio */
+    .inicio-content {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .inicio-content .title {
+        font-size: 2.5rem;
+    }
+
+    .inicio-content .subtitle {
+        font-size: 1rem;
+    }
+
+    .inicio-content .description {
+        max-width: 100%;
+    }
+
+    /* Sección de Productos */
+    .producto-info {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .producto-title {
+        font-size: 2rem;
+    }
+
+    .producto-features {
+        text-align: left;
+        display: inline-block;
+    }
+
+    .producto-image {
+        margin-top: 30px;
+    }
+
+    /* Sección de Filosofía */
+    .tarjeta-filosofia {
+        margin-bottom: 20px;
+    }
+
+    /* Sección de Nosotros */
+    .nosotros-content {
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 30px;
+    }
+
+    /* Sección de Por Qué Elegirnos */
+    .tarjeta-razon {
+        margin-bottom: 20px;
+    }
+
+    /* Sección de Puntos de Atención */
+    .sucursales-container {
+        height: 300px;
+        margin-bottom: 30px;
+    }
+
+    /* Sección de Contacto */
+    .tarjeta-formulario-contacto {
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+
+    .tarjeta-info-contacto {
+        margin-bottom: 20px;
+    }
+
+    /* Footer */
+    .footer .text-end {
+        text-align: center !important;
+        margin-top: 15px;
+    }
+
+    .enlaces-sociales {
+        justify-content: center;
+    }
+
+    /* Navegación Pageable */
+    .pg-pips {
+        display: none;
+    }
+}
+
+/* Móviles pequeños - Menor a 576px */
+@media (max-width: 576px) {
+    /* Estilos generales */
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    /* Sección de Inicio */
+    .inicio-content .title {
+        font-size: 2rem;
+    }
+
+    .inicio-content .slogan {
+        font-size: 1.1rem;
+    }
+
+    /* Sección de Productos */
+    .producto-title {
+        font-size: 1.8rem;
+    }
+
+    /* Sección de Contacto */
+    .form-control {
+        padding: 10px 15px;
+    }
+}

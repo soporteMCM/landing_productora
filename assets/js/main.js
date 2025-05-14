@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const isMobile = window.matchMedia("(max-width: 900px)").matches
+
     const pageable = new Pageable("#container", {
         // Opciones de Pageable
         childSelector: "[data-anchor]", // Selector para las páginas
         pips: false, // Mostrar/Ocultar los puntitos de navegación
         animation: 600, // Duración de la animación en ms
         orientation: "vertical", // Orientación de desplazamiento (horizontal o vertical)
+        freeScroll: isMobile, // Permitir desplazamiento libre
         events: {
             mouse: false // Usar clic del mouse para navegar
         },

@@ -236,6 +236,74 @@
     }
 }
 
+/* Estilos para puntos de navegación */
+.pg-pips {
+    position: fixed;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.pg-pips a {
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin: 10px 0;
+    position: relative;
+    border-radius: 50%;
+    background-color: rgba(129, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.pg-pips a.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Estilos para el botón de volver al inicio */
+.back-to-top-btn {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.back-to-top-btn i {
+    transition: transform 0.3s;
+}
+
+.back-to-top-btn:hover i {
+    transform: translateY(-3px);
+}
+
+@media (min-width: 768px) {
+    .back-to-top-btn {
+        width: auto;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Ajustes específicos para la sección de contacto */
+#contacto {
+    position: relative;
+    z-index: 1;
+}
+
+/* Para asegurar la interacción táctil correcta */
+#contacto.pg-active {
+    touch-action: pan-y; /* Permitir desplazamiento táctil dentro de la sección */
+}
+
+/* Mejoras para navegación por pips */
+.pg-pips .pg-pip[data-index="6"] a {
+    background-color: var(--primary-color);
+}
+
 /* Ajustes generales para dispositivos táctiles */
 @media (hover: none) {
     /* Mejora de áreas táctiles */
@@ -279,9 +347,20 @@
     .form-control:focus {
         box-shadow: 0 0 0 3px rgba(129, 0, 0, 0.2);
     }
-
     .btn:active {
         transform: scale(0.98);
+    }
+
+    /* Ajustes para puntos de navegación en móviles */
+    .pg-pips {
+        right: 10px;
+    }
+
+    .pg-pips a {
+        width: 14px;
+        height: 14px;
+        margin: 15px 0;
+        opacity: 0.8;
     }
 }
 

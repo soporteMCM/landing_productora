@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const pageable = new Pageable("#container", {
         // Opciones de Pageable
         childSelector: "[data-anchor]", // Selector para las páginas
-        anchors: [], // Anclas automáticas basadas en el atributo data-anchor
         animation: 500, // Duración de la animación en ms
         delay: 0, // Retraso entre animaciones
         orientation: "vertical", // Orientación de desplazamiento (horizontal o vertical)

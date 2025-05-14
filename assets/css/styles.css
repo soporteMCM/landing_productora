@@ -173,7 +173,6 @@ img {
 
 /* Header y Navegación */
 .header {
-    height: 80px;
     z-index: 1000;
 }
 
@@ -268,16 +267,6 @@ img {
     padding-bottom: 15px;
 }
 
-.producto-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 3px;
-    background-color: var(--primary-color);
-}
-
 .producto-description {
     font-size: 1.1rem;
     color: var(--gray-color);
@@ -316,13 +305,13 @@ img {
 .philosophy-card,
 .value-card {
     text-align: center;
-    padding: 40px 30px;
+    font-size: small;
+    padding: 20px 15px;
     background-color: var(--white-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     transition: var(--transition);
     height: 100%;
-    margin-bottom: 30px;
 }
 
 .philosophy-card:hover,
@@ -332,9 +321,8 @@ img {
 }
 
 .card-icon {
-    font-size: 40px;
+    font-size: 30px;
     color: var(--primary-color);
-    margin-bottom: 20px;
 }
 
 .card-title {
@@ -497,13 +485,13 @@ img {
 }
 
 /* Footer */
-.footer-section {
+.footer {
     background-color: var(--dark-color);
     color: var(--white-color);
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
-.footer-section p {
+.footer p {
     margin-bottom: 0;
 }
 
@@ -534,7 +522,6 @@ img {
 
 /* Pageable Styles */
 .pageable-container {
-    height: 100vh;
     width: 100%;
     overflow: hidden;
 }
@@ -588,85 +575,4 @@ img {
     width: 12px;
     height: 12px;
     background-color: var(--primary-color);
-}
-
-/* Media Queries */
-@media (max-width: 991px) {
-    .section {
-        padding: 70px 0;
-    }
-
-    .inicio-content .title {
-        font-size: 2.8rem;
-    }
-
-    .inicio-content .slogan {
-        font-size: 1.3rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .producto-title {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .section {
-        padding: 50px 0;
-    }
-
-    .inicio-content {
-        text-align: center;
-        margin-top: 30px;
-    }
-
-    .inicio-content .title {
-        font-size: 2.3rem;
-    }
-
-    .inicio-content .description {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .producto-title {
-        font-size: 1.8rem;
-    }
-
-    .philosophy-card,
-    .value-card,
-    .reason-card,
-    .contact-info-card {
-        margin-bottom: 30px;
-    }
-
-    .contact-form-card {
-        padding: 30px 20px;
-    }
-
-    .social-links {
-        justify-content: center;
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 575px) {
-    .inicio-content .title {
-        font-size: 2rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .producto-title {
-        font-size: 1.5rem;
-    }
 }

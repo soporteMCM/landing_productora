@@ -12,6 +12,9 @@
         <link rel="shortcut icon" href="assets/images/logo.svg" type="image/x-icon" />
 
         <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/css/lib/pageable.min.css" />
+        <link rel="stylesheet" href="assets/css/styles.css" />
+
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,15 +23,8 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
-
-        <!-- Pageable CSS -->
-        <link rel="stylesheet" href="assets/css/lib/pageable.min.css" />
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="assets/css/styles.css" />
     </head>
     <body>
-        <!-- Header & Navigation -->
         <header class="header fixed-top">
             <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
                 <div class="container">
@@ -63,13 +59,13 @@
                                 >
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-menuanchor="filosofia" href="#filosofia"
-                                    >Filosofía</a
+                                <a class="nav-link" data-menuanchor="nosotros" href="#nosotros"
+                                    >Nosotros</a
                                 >
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-menuanchor="nosotros" href="#nosotros"
-                                    >Nosotros</a
+                                <a class="nav-link" data-menuanchor="filosofia" href="#filosofia"
+                                    >Filosofía</a
                                 >
                             </li>
                             <li class="nav-item">
@@ -93,20 +89,11 @@
             </nav>
         </header>
 
-        <div id="container" class="pageable-container">
-            <!-- Inicoo Section -->
-            <div id="inicio" data-anchor="inicio" class="pg-page">
-                <div class="container h-100 d-inline-block">
-                    <div class="row align-items-center min-vh-100">
-                        <div class="col-lg-6 order-lg-2">
-                            <div class="inicio-image">
-                                <img
-                                    src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?q=80&w=1000"
-                                    alt="Crecimiento financiero"
-                                    class="img-fluid rounded-4 shadow"
-                                />
-                            </div>
-                        </div>
+        <main id="container" class="pg-container">
+            <!-- Inicio Section -->
+            <section id="inicio" data-anchor="inicio" class="pg-page">
+                <div class="container">
+                    <div class="row align-items-center">
                         <div class="col-lg-6 order-lg-1">
                             <div class="inicio-content">
                                 <h4 class="subtitle">Tu Futuro Financiero</h4>
@@ -121,20 +108,24 @@
                                 >
                             </div>
                         </div>
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="inicio-image">
+                                <img
+                                    src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?q=80&w=1000"
+                                    alt="Crecimiento financiero"
+                                    class="img-fluid rounded-4 shadow"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- Productos Section -->
-            <div id="productos" data-anchor="productos" class="pg-page">
+            <section id="productos" data-anchor="productos" class="pg-page">
                 <div class="container">
                     <div class="section-header text-center">
-                        <h6 class="section-subtitle">Nuestras Soluciones</h6>
                         <h2 class="section-title">PRODUCTOS</h2>
-                        <p class="section-description">
-                            Ofrecemos productos financieros adaptados a tus necesidades y metas
-                            personales.
-                        </p>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-lg-6">
@@ -175,97 +166,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Filosofía Section -->
-            <div id="filosofia" data-anchor="filosofia" class="pg-page">
-                <div class="container">
-                    <div class="section-header text-center">
-                        <h6 class="section-subtitle">Quiénes Somos</h6>
-                        <h2 class="section-title">FILOSOFÍA INSTITUCIONAL</h2>
-                    </div>
-                    <div class="row mb-5">
-                        <div class="col-md-6">
-                            <div class="philosophy-card">
-                                <div class="card-icon">
-                                    <i class="fas fa-bullseye"></i>
-                                </div>
-                                <h5 class="card-title">Misión</h5>
-                                <p class="card-text">
-                                    Brindar un excelente servicio de financiamiento, facilitando el
-                                    trámite y su otorgamiento, a personas responsables para impulsar
-                                    su desarrollo personal y económico.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="philosophy-card">
-                                <div class="card-icon">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                                <h5 class="card-title">Visión</h5>
-                                <p class="card-text">
-                                    Ser una empresa líder en el ramo del financiamiento personal y
-                                    servicios financieros en cada una de las zonas del estado y del
-                                    país.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="valores-section">
-                        <h4 class="valores-title text-center mb-4">VALORES</h4>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="value-card">
-                                    <div class="card-icon">
-                                        <i class="fas fa-handshake"></i>
-                                    </div>
-                                    <h5 class="card-title">Honestidad</h5>
-                                    <p class="card-text">
-                                        Actuamos con claridad, transparencia y tomamos decisiones
-                                        basadas en la verdad y los hechos.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="value-card">
-                                    <div class="card-icon">
-                                        <i class="fas fa-heart"></i>
-                                    </div>
-                                    <h5 class="card-title">Lealtad</h5>
-                                    <p class="card-text">
-                                        Somos personas de Honor y tenemos la virtud de
-                                        comprometernos fielmente con la empresa y nuestros clientes.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="value-card">
-                                    <div class="card-icon">
-                                        <i class="fas fa-clipboard-check"></i>
-                                    </div>
-                                    <h5 class="card-title">Disciplina</h5>
-                                    <p class="card-text">
-                                        Cumplimos cabalmente con las reglas, políticas, normas y
-                                        procedimientos de la empresa para garantizar la calidad de
-                                        nuestro servicio.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
 
             <!-- Nosotros Section -->
-            <div id="nosotros" data-anchor="nosotros" class="pg-page">
+            <section id="nosotros" data-anchor="nosotros" class="pg-page">
                 <div class="container">
                     <div class="section-header text-center">
-                        <h6 class="section-subtitle">Conoce Más</h6>
                         <h2 class="section-title">NOSOTROS</h2>
-                        <p class="section-description">
-                            Un equipo comprometido con tu bienestar financiero.
-                        </p>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-lg-5">
@@ -279,6 +186,9 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="nosotros-content">
+                                <h4 class="section-subtitle">
+                                    Un equipo comprometido con tu bienestar financiero.
+                                </h4>
                                 <p>
                                     Somos una empresa 100% mexicana conformada con el fin de brindar
                                     excelentes servicios financieros para nuestros clientes y
@@ -295,15 +205,90 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Filosofía Section -->
+            <section id="filosofia" data-anchor="filosofia" class="pg-page">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">FILOSOFÍA</h2>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 text-center">
+                            <div class="philosophy-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <h5 class="card-title">Misión</h5>
+                                <p class="card-text">
+                                    Brindar un excelente servicio de financiamiento, facilitando el
+                                    trámite y su otorgamiento, a personas responsables para impulsar
+                                    su desarrollo personal y económico.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <div class="philosophy-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h5 class="card-title">Visión</h5>
+                                <p class="card-text">
+                                    Ser una empresa líder en el ramo del financiamiento personal y
+                                    servicios financieros en cada una de las zonas del estado y del
+                                    país.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="philosophy-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h5 class="card-title">Honestidad</h5>
+                                <p class="card-text">
+                                    Actuamos con claridad, transparencia y tomamos decisiones
+                                    basadas en la verdad y los hechos.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="philosophy-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h5 class="card-title">Lealtad</h5>
+                                <p class="card-text">
+                                    Somos personas de Honor y tenemos la virtud de comprometernos
+                                    fielmente con la empresa y nuestros clientes.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="philosophy-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <h5 class="card-title">Disciplina</h5>
+                                <p class="card-text">
+                                    Cumplimos cabalmente con las reglas, políticas, normas y
+                                    procedimientos de la empresa para garantizar la calidad de
+                                    nuestro servicio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Elegirnos Section -->
-            <div id="elegirnos" data-anchor="elegirnos" class="pg-page">
+            <section id="elegirnos" data-anchor="elegirnos" class="pg-page">
                 <div class="container">
-                    <h2 class="section-title text-center mb-4">¿Por qué elegirnos?</h2>
-                    <p class="section-description text-center mb-5">
-                        Estas son algunas razones por las que deberías confiar en nosotros:
-                    </p>
+                    <div class="section-header text-center">
+                        <h2 class="section-title">¿POR QUÉ ELEGIRNOS?</h2>
+                    </div>
                     <div class="row">
                         <div class="col-md-6 col-lg-3 mb-4">
                             <div class="reason-card">
@@ -345,22 +330,20 @@
                                 </div>
                                 <h5 class="reason-title">Enfoque en el Cliente</h5>
                                 <p class="reason-text">
-                                    Porque nuestra prioridad eres tú y tu bienestar.
+                                    Nuestra prioridad es el bienestar y satisfacción de nuestros
+                                    clientes.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- Puntos de Atención Section -->
-            <div id="sucursales" data-anchor="sucursales" class="pg-page">
+            <section id="sucursales" data-anchor="sucursales" class="pg-page">
                 <div class="container">
                     <div class="section-header text-center">
-                        <h2 class="section-title">Sucursales</h2>
-                        <p class="section-description">
-                            Estamos cerca de ti para brindarte el mejor servicio.
-                        </p>
+                        <h2 class="section-title">SUCURSALES</h2>
                     </div>
                     <div class="row">
                         <div class="col-12">
@@ -378,7 +361,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5">
+                    <div class="row">
                         <div class="col-12">
                             <div class="offices-grid">
                                 <div class="row">
@@ -424,74 +407,65 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- Contacto Section -->
-            <div id="contacto" data-anchor="contacto" class="pg-page">
+            <section id="contacto" data-anchor="contacto" class="pg-page">
                 <div class="container">
                     <div class="section-header text-center">
                         <h2 class="section-title">CONTÁCTENOS</h2>
-                        <p class="section-description">
-                            Estamos listos para atender tus necesidades financieras.
-                        </p>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="contact-form-card">
-                                <form id="contactForm" class="contact-form">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="name" class="form-label"
-                                                >Nombre completo</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="name"
-                                                placeholder="Tu nombre"
-                                                required
-                                            />
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="phone" class="form-label">Teléfono</label>
-                                            <input
-                                                type="tel"
-                                                class="form-control"
-                                                id="phone"
-                                                placeholder="Tu teléfono"
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label"
-                                            >Correo electrónico</label
-                                        >
+                        <div class="contact-form-card">
+                            <form id="contactForm" class="contact-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">Nombre completo</label>
                                         <input
-                                            type="email"
+                                            type="text"
                                             class="form-control"
-                                            id="email"
-                                            placeholder="Tu correo"
+                                            id="name"
+                                            placeholder="Tu nombre"
                                             required
                                         />
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="message" class="form-label">Mensaje</label>
-                                        <textarea
+                                    <div class="col-md-6 mb-3">
+                                        <label for="phone" class="form-label">Teléfono</label>
+                                        <input
+                                            type="tel"
                                             class="form-control"
-                                            id="message"
-                                            rows="4"
-                                            placeholder="¿En qué podemos ayudarte?"
+                                            id="phone"
+                                            placeholder="Tu teléfono"
                                             required
-                                        ></textarea>
+                                        />
                                     </div>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-lg">
-                                            Enviar Mensaje
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo electrónico</label>
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="email"
+                                        placeholder="Tu correo"
+                                        required
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Mensaje</label>
+                                    <textarea
+                                        class="form-control"
+                                        id="message"
+                                        rows="4"
+                                        placeholder="¿En qué podemos ayudarte?"
+                                        required
+                                    ></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        Enviar Mensaje
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -515,12 +489,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
 
-        <footer class="footer-section mt-5">
+        <footer class="footer fixed-bottom p-10">
             <div class="container">
-                <div class="row align-items-center py-4">
+                <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start">
                         <p class="mb-0">
                             &copy; 2025 Productora Cultiva. Todos los derechos reservados.

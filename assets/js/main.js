@@ -16,20 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
-    const contacto = document.querySelector("#contacto")
-    contacto.addEventListener("mouseenter", () => {
-        if (pageable && pageable.events) {
-            pageable.events.mouse = false
-            pageable.events.wheel = false
-        }
-    })
-
-    contacto.addEventListener("mouseleave", () => {
-        if (pageable && pageable.events) {
-            pageable.events.wheel = true
-        }
-    })
-
     const contactoFrm = document.getElementById("contactForm")
     contactoFrm.addEventListener("click", (e) => {
         e.stopPropagation()
@@ -45,21 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault()
             const target = this.getAttribute("href").substring(1)
             pageable.scrollToAnchor(target)
-        })
-    })
-
-    document.querySelectorAll(".form-control").forEach((input) => {
-        input.addEventListener("click", function (e) {
-            e.stopPropagation()
-        })
-
-        input.addEventListener("focus", function (e) {
-            pageable.events.mouse = false
-            pageable.events.wheel = false
-        })
-
-        input.addEventListener("blur", function (e) {
-            pageable.events.wheel = true
         })
     })
 

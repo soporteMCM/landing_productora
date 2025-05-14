@@ -90,7 +90,7 @@
             <section id="inicio" data-anchor="inicio" class="pg-page">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-6 order-lg-1">
+                        <div class="inicio-descripcion col-lg-6 order-lg-1">
                             <div class="inicio-content">
                                 <h4 class="subtitle">Tu Futuro Financiero</h4>
                                 <h1 class="title">PRODUCTORA CULTIVA</h1>
@@ -153,7 +153,11 @@
                                         <i class="fas fa-check-circle"></i> Mínimo papeleo requerido
                                     </li>
                                 </ul>
-                                <a href="#contacto" class="btn btn-outline-primary">Contáctenos</a>
+                                <div class="text-center">
+                                    <a href="#contacto" class="btn btn-outline-primary"
+                                        >Contáctenos</a
+                                    >
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -177,11 +181,13 @@
                     </div>
                     <div class="row align-items-center">
                         <div class="col-lg-3">
-                            <img
-                                src="assets/images/professional-team.jpg"
-                                alt="Equipo Profesional"
-                                class="rounded-4 shadow img-fluid"
-                            />
+                            <div class="producto-image">
+                                <img
+                                    src="assets/images/professional-team.jpg"
+                                    alt="Equipo Profesional"
+                                    class="rounded-4 shadow img-fluid"
+                                />
+                            </div>
                         </div>
                         <div class="col-lg-9">
                             <div class="nosotros-content">
@@ -212,7 +218,7 @@
                     <div class="section-header text-center">
                         <h2 class="section-title">FILOSOFÍA</h2>
                     </div>
-                    <div class="row mb-3">
+                    <div class="filosofiaItems row mb-3">
                         <div class="col-md-6 text-center">
                             <div class="tarjeta-filosofia">
                                 <div class="icono-tarjeta">
@@ -240,7 +246,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="filosofiaItems row">
                         <div class="col-md-4">
                             <div class="tarjeta-filosofia">
                                 <div class="icono-tarjeta">
@@ -347,14 +353,14 @@
                         <h2 class="section-title">SUCURSALES</h2>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-6 offset-md-3">
                             <div class="lista-sucursales">
                                 <div id="sucursales-lista" class="sucursales-container">
                                     <!-- Las sucursales se cargarán desde JS -->
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-7">
+                        <!-- <div class="col-md-7">
                             <div class="mapa-sucursales">
                                 <iframe
                                     id="mapa-sucursal"
@@ -367,7 +373,7 @@
                                 >
                                 </iframe>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>
@@ -414,29 +420,33 @@
                                             />
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label"
-                                            >Correo electrónico</label
-                                        >
-                                        <input
-                                            type="email"
-                                            class="form-control"
-                                            id="email"
-                                            placeholder="Tu correo"
-                                            tabindex="3"
-                                            required
-                                        />
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <label for="email" class="form-label"
+                                                >Correo electrónico</label
+                                            >
+                                            <input
+                                                type="email"
+                                                class="form-control"
+                                                id="email"
+                                                placeholder="Tu correo"
+                                                tabindex="3"
+                                                required
+                                            />
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="mensaje" class="form-label">Mensaje</label>
-                                        <textarea
-                                            class="form-control"
-                                            id="mensaje"
-                                            rows="4"
-                                            placeholder="¿En qué podemos ayudarte?"
-                                            tabindex="4"
-                                            required
-                                        ></textarea>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <label for="mensaje" class="form-label">Mensaje</label>
+                                            <textarea
+                                                class="form-control"
+                                                id="mensaje"
+                                                rows="4"
+                                                placeholder="¿En qué podemos ayudarte?"
+                                                tabindex="4"
+                                                required
+                                            ></textarea>
+                                        </div>
                                     </div>
                                     <div class="text-center">
                                         <button
@@ -451,7 +461,7 @@
                             </div>
                         </div>
                         <div class="col-md-5 d-flex flex-column justify-content-between">
-                            <div class="tarjeta-info-contacto mb-4">
+                            <div class="tarjeta-info-contacto">
                                 <div class="icono-info">
                                     <i class="fas fa-envelope"></i>
                                 </div>
@@ -462,8 +472,8 @@
                                 <div class="icono-info">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
-                                <h5 class="titulo-info">Teléfonos</h5>
-                                <p class="texto-info">+52 722 123 4567</p>
+                                <h5 class="titulo-info">Teléfono</h5>
+                                <p class="texto-info">+52 72 2123 4567</p>
                             </div>
                         </div>
                     </div>
@@ -474,7 +484,7 @@
         <footer class="footer fixed-bottom p-10">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-12 text-center text-md-start">
+                    <div class="col-md-12 text-center">
                         <p class="mb-0">
                             &copy; <span id="anio"></span> Productora Cultiva. Todos los derechos
                             reservados.

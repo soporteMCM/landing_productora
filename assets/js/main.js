@@ -164,8 +164,8 @@ const cargarSucursales = async () => {
         const contenedorSucursales = document.getElementById("sucursales-lista")
         if (!contenedorSucursales) return
 
-        const mapaSucursal = document.getElementById("mapa-sucursal")
-        if (!mapaSucursal) return
+        // const mapaSucursal = document.getElementById("mapa-sucursal")
+        // if (!mapaSucursal) return
 
         contenedorSucursales.innerHTML = ""
 
@@ -173,19 +173,19 @@ const cargarSucursales = async () => {
             const sucursalElement = document.createElement("div")
             sucursalElement.className = "sucursal-item"
             sucursalElement.textContent = sucursal.nombre
-            sucursalElement.addEventListener("click", function () {
-                document.querySelectorAll(".sucursal-item").forEach((el) => {
-                    el.classList.remove("active")
-                })
+            // sucursalElement.addEventListener("click", function () {
+            //     document.querySelectorAll(".sucursal-item").forEach((el) => {
+            //         el.classList.remove("active")
+            //     })
 
-                this.classList.add("active")
-                mapaSucursal.src = sucursal.ubicacion
-            })
+            //     this.classList.add("active")
+            //     mapaSucursal.src = sucursal.ubicacion
+            // })
 
-            if (index === 0) {
-                sucursalElement.classList.add("active")
-                mapaSucursal.src = sucursal.ubicacion
-            }
+            // if (index === 0) {
+            //     sucursalElement.classList.add("active")
+            //     mapaSucursal.src = sucursal.ubicacion
+            // }
 
             contenedorSucursales.appendChild(sucursalElement)
         })

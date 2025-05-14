@@ -1,0 +1,364 @@
+/* Media Queries para Responsividad */
+
+/* Dispositivos extra pequeños (teléfonos, menos de 576px) */
+@media (max-width: 575.98px) {
+    /* Estilos para header y navegación */
+    .navbar-brand img.logo-img {
+        height: 40px;
+    }
+
+    .navbar-toggler {
+        padding: 4px 8px;
+        border: none;
+    }
+
+    .navbar-collapse {
+        background-color: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+    }
+
+    /* Secciones con altura ajustada */
+    .pg-page {
+        height: auto !important;
+        min-height: 100vh !important;
+        padding: 80px 0 50px;
+    }
+
+    /* Ajustes de tipografía */
+    .inicio-content .title {
+        font-size: 2.2rem;
+    }
+
+    .inicio-content .subtitle {
+        font-size: 1rem;
+    }
+
+    .inicio-content .slogan {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    /* Ajustes de estructura y layout */
+    .row {
+        margin-bottom: 15px;
+    }
+
+    .order-xs-1 {
+        order: 1;
+    }
+
+    .order-xs-2 {
+        order: 2;
+    }
+
+    /* Ajustes para tarjetas y contenedores */
+    .tarjeta-filosofia,
+    .tarjeta-razon {
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    .icono-tarjeta,
+    .icono-razon {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .titulo-tarjeta,
+    .titulo-razon {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* Ajuste del mapa de sucursales */
+    .mapa-sucursales iframe {
+        height: 300px;
+    }
+
+    .sucursales-container {
+        height: 250px;
+        margin-bottom: 20px;
+    }
+
+    .sucursal-item {
+        padding: 10px;
+    }
+
+    /* Ajustes para el formulario de contacto */
+    .tarjeta-formulario-contacto {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    /* Ajustes para el footer */
+    .footer {
+        position: relative !important;
+        padding: 15px 0;
+    }
+
+    .enlaces-sociales {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    /* Ajuste para los botones */
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px 20px;
+    }
+}
+
+/* Dispositivos pequeños (tablets, 576px - 767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* Estilos para header y navegación */
+    .navbar-brand img.logo-img {
+        height: 45px;
+    }
+
+    .navbar-toggler {
+        padding: 6px 10px;
+        border: 1px solid #eee;
+    }
+
+    /* Secciones con altura ajustada */
+    .pg-page {
+        height: auto !important;
+        min-height: 100vh !important;
+        padding: 80px 0 50px;
+    }
+
+    /* Ajustes de tipografía */
+    .inicio-content .title {
+        font-size: 2.8rem;
+    }
+
+    .inicio-content .slogan {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Ajuste del mapa de sucursales */
+    .mapa-sucursales iframe {
+        height: 350px;
+    }
+
+    .sucursales-container {
+        height: 300px;
+        margin-bottom: 20px;
+    }
+
+    /* Ajustes para tarjetas */
+    .tarjeta-filosofia,
+    .tarjeta-razon {
+        margin-bottom: 20px;
+    }
+
+    /* Ajustes para el formulario */
+    .tarjeta-formulario-contacto {
+        padding: 25px;
+    }
+
+    /* Ajustes para el footer */
+    .footer {
+        position: relative !important;
+    }
+
+    /* Ajuste para los botones */
+    .btn {
+        padding: 10px 20px;
+    }
+}
+
+/* Dispositivos medianos (tablets horizontales, 768px - 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* Ajustes para header */
+    .navbar-brand img.logo-img {
+        height: 48px;
+    }
+
+    /* Secciones con altura ajustada */
+    .pg-page {
+        min-height: 100vh !important;
+    }
+
+    /* Ajustes de tipografía */
+    .inicio-content .title {
+        font-size: 3rem;
+    }
+
+    /* Ajustes para layout de columnas */
+    .order-md-1 {
+        order: 1;
+    }
+
+    .order-md-2 {
+        order: 2;
+    }
+
+    /* Ajustes para tarjetas */
+    .tarjeta-filosofia,
+    .tarjeta-razon {
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    /* Ajustes para sucursales */
+    .mapa-sucursales iframe {
+        height: 400px;
+    }
+
+    /* Ajustes para formulario */
+    .form-control {
+        padding: 12px 15px;
+    }
+}
+
+/* Dispositivos grandes (desktops, 992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    /* Ajustes mínimos para desktop */
+    .inicio-content .title {
+        font-size: 3rem;
+    }
+}
+
+/* Ajustes generales para dispositivos táctiles */
+@media (hover: none) {
+    /* Mejora de áreas táctiles */
+    .nav-link,
+    .btn,
+    .sucursal-item {
+        padding: 12px 15px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 15px;
+        margin: 5px 0;
+        border-radius: 8px;
+    }
+
+    .navbar-nav .nav-link:active {
+        background-color: rgba(129, 0, 0, 0.1);
+    }
+
+    .tarjeta-filosofia,
+    .tarjeta-razon,
+    .tarjeta-info-contacto {
+        cursor: default;
+        transition: none;
+    }
+
+    .tarjeta-filosofia:hover,
+    .tarjeta-razon:hover,
+    .tarjeta-info-contacto:hover {
+        transform: none;
+    }
+
+    /* Mejoras para formularios táctiles */
+    input,
+    textarea,
+    select,
+    .form-control {
+        font-size: 16px !important; /* Evita zoom automático en iOS */
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 0 3px rgba(129, 0, 0, 0.2);
+    }
+
+    .btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Ajustes para la orientación del dispositivo */
+@media screen and (orientation: portrait) {
+    /* Ajustes específicos para orientación vertical */
+    .inicio-image img {
+        max-height: 40vh;
+        object-fit: cover;
+    }
+
+    .producto-image img {
+        max-height: 35vh;
+        object-fit: cover;
+    }
+
+    /* Mejorar espaciado en modo retrato */
+    .pg-page .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    /* Ajustes para modo landscape en dispositivos móviles */
+    .pg-page {
+        height: auto !important;
+        min-height: 120vh !important;
+        padding: 70px 0 40px;
+    }
+
+    .navbar {
+        padding: 5px 0;
+    }
+
+    .navbar-brand img.logo-img {
+        height: 35px;
+    }
+
+    .section-header {
+        margin-bottom: 20px;
+    }
+
+    /* Reducir tamaño de texto en landscape */
+    .inicio-content .title {
+        font-size: 1.8rem;
+    }
+
+    .inicio-content .slogan {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+
+    /* Ajustar altura de imágenes */
+    .inicio-image img,
+    .producto-image img {
+        max-height: 70vh;
+    }
+
+    .footer {
+        position: relative !important;
+        padding: 10px 0;
+    }
+
+    /* Ajustar tarjetas y formularios */
+    .tarjeta-filosofia,
+    .tarjeta-razon,
+    .tarjeta-info-contacto,
+    .tarjeta-formulario-contacto {
+        padding: 15px;
+    }
+
+    .form-control {
+        padding: 8px 12px;
+    }
+}

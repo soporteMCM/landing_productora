@@ -1,12 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const esPantallaMovil = window.innerWidth < 992
+
     const pageable = new Pageable("#container", {
         // Opciones de Pageable
         childSelector: "[data-anchor]", // Selector para las páginas
         pips: false, // Mostrar/Ocultar los puntitos de navegación
         animation: 600, // Duración de la animación en ms
         orientation: "vertical", // Orientación de desplazamiento (horizontal o vertical)
+        swipeThreshold: esPantallaMovil ? 50 : 100, // Umbral más bajo para móviles
+        freeScroll: esPantallaMovil, // Permitir desplazamiento libre en móviles
         events: {
-            mouse: false // Usar clic del mouse para navegar
+            mouse: false, // Usar clic del mouse para navegar
+            touch: !esPantallaMovil // Deshabilitar eventos táctiles en móviles inicialmente
         },
         onFinish: (data) => {
             document.querySelectorAll(".nav-link").forEach((link, index) => {
@@ -24,9 +29,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
+    contacto.addEventListener("touchstart", () => {
+        if (pageable && pageable.events) {
+            pageable.events.mouse = false
+            pageable.events.wheel = false
+            pageable.events.touch = false
+        }
+    })
+
     contacto.addEventListener("mouseleave", () => {
         if (pageable && pageable.events) {
             pageable.events.wheel = true
+        }
+    })
+
+    contacto.addEventListener("touchend", () => {
+        if (pageable && pageable.events) {
+            pageable.events.wheel = true
+            pageable.events.touch = true
         }
     })
 
@@ -45,6 +65,12 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault()
             const target = this.getAttribute("href").substring(1)
             pageable.scrollToAnchor(target)
+
+            // Cerrar el menú móvil si está abierto
+            const navbarCollapse = document.querySelector(".navbar-collapse")
+            if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+                navbarCollapse.classList.remove("show")
+            }
         })
     })
 
@@ -53,13 +79,23 @@ document.addEventListener("DOMContentLoaded", function () {
             e.stopPropagation()
         })
 
+        input.addEventListener("touchstart", function (e) {
+            e.stopPropagation()
+        })
+
         input.addEventListener("focus", function (e) {
             pageable.events.mouse = false
             pageable.events.wheel = false
+            if ("ontouchstart" in window) {
+                pageable.events.touch = false
+            }
         })
 
         input.addEventListener("blur", function (e) {
             pageable.events.wheel = true
+            if ("ontouchstart" in window) {
+                pageable.events.touch = true
+            }
         })
     })
 

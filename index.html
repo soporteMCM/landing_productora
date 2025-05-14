@@ -179,7 +179,7 @@
                             <img
                                 src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=1000"
                                 alt="Equipo Profesional"
-                                class="rounded-4 shadow img-fluid mw-80"
+                                class="rounded-4 shadow img-fluid"
                             />
                         </div>
                         <div class="col-lg-9">
@@ -344,9 +344,17 @@
                         <h2 class="section-title">SUCURSALES</h2>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-5">
+                            <div class="offices-list">
+                                <div id="sucursales-lista" class="sucursales-container">
+                                    <!-- Las sucursales se cargarán desde JS -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
                             <div class="offices-map">
                                 <iframe
+                                    id="mapa-sucursal"
                                     src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3164.642145044276!2d-99.17196960204025!3d19.39446904727439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1ses-419!2smx!4v1747180818047!5m2!1ses-419!2smx"
                                     width="100%"
                                     height="450"
@@ -356,51 +364,6 @@
                                     referrerpolicy="no-referrer-when-downgrade"
                                 >
                                 </iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="offices-grid">
-                                <div class="row">
-                                    <!-- Listado de oficinas en formato grid -->
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">PUEBLA NORTE</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">PUEBLA SUR</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">TOLUCA</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">CUERNAVACA</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">TLAXCALA</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">CHALCO</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">CUAUTLA</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">ECATEPEC</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">ATLIXCO</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">ATIZAPAN</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">AMECAMECA</div>
-                                    </div>
-                                    <div class="col-6 col-md-3 col-lg-2 mb-3">
-                                        <div class="office-item">SAN MARTIN</div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

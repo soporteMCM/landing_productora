@@ -104,4 +104,58 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     document.querySelector("#anio").textContent = new Date().getFullYear()
+
+    // Cargar sucursales desde JSON
+    cargarSucursales()
 })
+
+// Función para cargar sucursales desde JSON
+async function cargarSucursales() {
+    try {
+        const response = await fetch("assets/data/sucursales.json")
+        if (!response.ok) {
+            throw new Error("No se pudo cargar el archivo de sucursales")
+        }
+        const data = await response.json()
+
+        const contenedorSucursales = document.getElementById("sucursales-lista")
+        if (!contenedorSucursales) return
+
+        const mapaSucursal = document.getElementById("mapa-sucursal")
+        if (!mapaSucursal) return
+
+        // Limpiar el contenedor
+        contenedorSucursales.innerHTML = ""
+
+        // Agregar cada sucursal al listado
+        data.sucursales.forEach((sucursal, index) => {
+            const sucursalElement = document.createElement("div")
+            sucursalElement.className = "sucursal-item"
+            sucursalElement.textContent = sucursal.nombre
+
+            // Manejar el clic para cambiar el mapa
+            sucursalElement.addEventListener("click", function () {
+                // Quitar la clase active de todos los elementos
+                document.querySelectorAll(".sucursal-item").forEach((el) => {
+                    el.classList.remove("active")
+                })
+
+                // Añadir la clase active al elemento clicado
+                this.classList.add("active")
+
+                // Actualizar el iframe del mapa
+                mapaSucursal.src = sucursal.ubicacion
+            })
+
+            // Marcar la primera sucursal como activa por defecto
+            if (index === 0) {
+                sucursalElement.classList.add("active")
+                mapaSucursal.src = sucursal.ubicacion
+            }
+
+            contenedorSucursales.appendChild(sucursalElement)
+        })
+    } catch (error) {
+        console.error("Error al cargar las sucursales:", error)
+    }
+}

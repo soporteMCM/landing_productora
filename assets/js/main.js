@@ -46,6 +46,16 @@ document.addEventListener("DOMContentLoaded", function () {
         enviaConatacto(contacto)
     })
 
+    document.querySelector("#navbarNav").addEventListener("click", (e) => {
+        if (e.target.classList.contains("nav-link") && isMobile) {
+            const navbar = document.querySelector("#navbarNav")
+            const bsCollapse = new bootstrap.Collapse(navbar, {
+                toggle: false
+            })
+            bsCollapse.hide()
+        }
+    })
+
     document.querySelectorAll(".nav-link").forEach((link) => {
         link.addEventListener("click", function (e) {
             e.preventDefault()

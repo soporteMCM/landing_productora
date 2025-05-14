@@ -8,10 +8,16 @@
         padding: 0;
     }
 
+    .navbar-collapse {
+        background-color: white !important;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+    }
+
     /* Sección de Inicio */
     .inicio-content .title {
         font-size: 1.5rem;
         margin-bottom: 5px;
+        border-radius: 5px;
     }
 
     .inicio-content .slogan {

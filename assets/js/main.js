@@ -1,11 +1,4 @@
-/* 
-   Productora Cultiva - Scripts personalizados
-   Creado: Mayo 2025
-*/
-
-// Inicialización de Pageable
 document.addEventListener("DOMContentLoaded", function () {
-    // Crear instancia de Pageable
     const pageable = new Pageable("#container", {
         // Opciones de Pageable
         childSelector: "[data-anchor]", // Selector para las páginas
@@ -25,29 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
             keydown: true // Habilitar eventos de teclado
         },
         easing: function (currentTime, startPos, endPos, interval) {
-            // Función de aceleración personalizada (easeInOutCubic)
             currentTime /= interval / 2
             if (currentTime < 1)
                 return (endPos / 2) * currentTime * currentTime * currentTime + startPos
             currentTime -= 2
             return (endPos / 2) * (currentTime * currentTime * currentTime + 2) + startPos
         },
-        onInit: function () {
-            // Callback después de la inicialización
-            console.log("Pageable inicializado")
-        },
-        onBeforeStart: function () {
-            // Callback antes de comenzar la animación
-        },
-        onStart: function () {
-            // Callback al comenzar la animación
-        },
-        onScroll: function () {
-            // Callback durante el desplazamiento
-        },
         onFinish: function (data) {
-            // Callback después de completar la animación
-            // Añadir clase 'active' al enlace del menú correspondiente a la sección activa
             document.querySelectorAll(".nav-link").forEach((link) => {
                 link.classList.remove("active")
                 if (link.getAttribute("href") === "#" + data.anchor) {
@@ -55,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             })
         }
-    }) // Validación básica del formulario de contacto
+    })
     const contactForm = document.getElementById("contactForm")
 
     if (contactForm) {
@@ -108,13 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    // Función para validar correo electrónico
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         return emailRegex.test(email)
     }
 
-    // Función para resaltar campos con error
     function highlightField(field, isError) {
         if (isError) {
             field.classList.add("is-invalid")
@@ -125,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Función para mostrar mensaje de éxito
     function showFormSuccess() {
         const formContainer = document.querySelector(".contact-form-card")
         const successAlert = document.createElement("div")
@@ -137,13 +111,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         formContainer.appendChild(successAlert)
 
-        // Eliminar el mensaje después de 5 segundos
         setTimeout(() => {
             successAlert.remove()
         }, 5000)
     }
 
-    // Navegación desde enlaces del menú
     document.querySelectorAll(".nav-link").forEach((link) => {
         link.addEventListener("click", function (e) {
             e.preventDefault()

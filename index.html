@@ -11,10 +11,7 @@
 
         <link rel="shortcut icon" href="assets/images/logo.svg" type="image/x-icon" />
 
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
+        <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -97,6 +94,7 @@
         </header>
 
         <div id="container" class="pageable-container">
+            <!-- Inicoo Section -->
             <div id="inicio" data-anchor="inicio" class="pg-page">
                 <div class="container h-100 d-inline-block">
                     <div class="row align-items-center min-vh-100">
@@ -126,6 +124,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Productos Section -->
             <div id="productos" data-anchor="productos" class="pg-page">
                 <div class="container">
@@ -366,12 +365,16 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="offices-map">
-                                <!-- Aquí iría un mapa interactivo en una implementación real -->
-                                <img
-                                    src="https://images.unsplash.com/photo-1569336415962-a4bd9f69c907?q=80&w=1000"
-                                    alt="Mapa de Oficinas"
-                                    class="img-fluid rounded-4"
-                                />
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3164.642145044276!2d-99.17196960204025!3d19.39446904727439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1ses-419!2smx!4v1747180818047!5m2!1ses-419!2smx"
+                                    width="100%"
+                                    height="450"
+                                    style="border: 0; border-radius: 8px"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                >
+                                </iframe>
                             </div>
                         </div>
                     </div>
@@ -515,7 +518,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="footer-section mt-5">
             <div class="container">
                 <div class="row align-items-center py-4">
@@ -535,13 +537,8 @@
             </div>
         </footer>
 
-        <!-- Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Pageable JS -->
+        <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
         <script src="assets/js/lib/pageable.min.js"></script>
-
-        <!-- Custom JS -->
         <script src="assets/js/main.js"></script>
     </body>
 </html>

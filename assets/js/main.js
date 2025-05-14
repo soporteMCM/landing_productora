@@ -2,33 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const pageable = new Pageable("#container", {
         // Opciones de Pageable
         childSelector: "[data-anchor]", // Selector para las páginas
-        animation: 500, // Duración de la animación en ms
-        delay: 0, // Retraso entre animaciones
+        pips: false, // Mostrar/Ocultar los puntitos de navegación
+        animation: 600, // Duración de la animación en ms
         orientation: "vertical", // Orientación de desplazamiento (horizontal o vertical)
-        swipeThreshold: 50, // Umbral para detectar deslizamientos
-        freeScroll: false, // Desplazamiento libre o por página
-        navPrevEl: false, // Elemento para navegación previa
-        navNextEl: false, // Elemento para navegación siguiente
-        infinite: false, // Desplazamiento infinito
-        events: {
-            wheel: true, // Habilitar eventos de rueda
-            mouse: false, // Habilitar eventos de mouse
-            touch: true, // Habilitar eventos táctiles
-            keydown: true // Habilitar eventos de teclado
-        },
-        easing: function (currentTime, startPos, endPos, interval) {
-            currentTime /= interval / 2
-            if (currentTime < 1)
-                return (endPos / 2) * currentTime * currentTime * currentTime + startPos
-            currentTime -= 2
-            return (endPos / 2) * (currentTime * currentTime * currentTime + 2) + startPos
-        },
-        onFinish: function (data) {
-            document.querySelectorAll(".nav-link").forEach((link) => {
-                link.classList.remove("active")
-                if (link.getAttribute("href") === "#" + data.anchor) {
-                    link.classList.add("active")
-                }
+        onFinish: (data) => {
+            document.querySelectorAll(".nav-link").forEach((link, index) => {
+                if (index === data.index) link.classList.add("active")
+                else link.classList.remove("active")
             })
         }
     })
@@ -122,4 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
             pageable.scrollToAnchor(target)
         })
     })
+
+    document.querySelector("#anio").textContent = new Date().getFullYear()
 })

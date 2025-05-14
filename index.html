@@ -49,7 +49,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" data-menuanchor="inicio" href="#inicio"
+                                <a class="nav-link active" data-menuanchor="inicio" href="#inicio"
                                     >Inicio</a
                                 >
                             </li>
@@ -187,7 +187,7 @@
                         <div class="col-lg-7">
                             <div class="nosotros-content">
                                 <h4 class="section-subtitle">
-                                    Un equipo comprometido con tu bienestar financiero.
+                                    Somos un equipo comprometido con tu bienestar financiero.
                                 </h4>
                                 <p>
                                     Somos una empresa 100% mexicana conformada con el fin de brindar
@@ -415,70 +415,70 @@
                     <div class="section-header text-center">
                         <h2 class="section-title">CONTÁCTENOS</h2>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="contact-form-card">
-                            <form id="contactForm" class="contact-form">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="name" class="form-label">Nombre completo</label>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="contact-form-card">
+                                <form id="contactForm" class="contact-form">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="name" class="form-label">Nombre</label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="name"
+                                                placeholder="Tu nombre"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="phone" class="form-label">Teléfono</label>
+                                            <input
+                                                type="tel"
+                                                class="form-control"
+                                                id="phone"
+                                                placeholder="Tu teléfono"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label"
+                                            >Correo electrónico</label
+                                        >
                                         <input
-                                            type="text"
+                                            type="email"
                                             class="form-control"
-                                            id="name"
-                                            placeholder="Tu nombre"
+                                            id="email"
+                                            placeholder="Tu correo"
                                             required
                                         />
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="phone" class="form-label">Teléfono</label>
-                                        <input
-                                            type="tel"
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Mensaje</label>
+                                        <textarea
                                             class="form-control"
-                                            id="phone"
-                                            placeholder="Tu teléfono"
+                                            id="message"
+                                            rows="4"
+                                            placeholder="¿En qué podemos ayudarte?"
                                             required
-                                        />
+                                        ></textarea>
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Correo electrónico</label>
-                                    <input
-                                        type="email"
-                                        class="form-control"
-                                        id="email"
-                                        placeholder="Tu correo"
-                                        required
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message" class="form-label">Mensaje</label>
-                                    <textarea
-                                        class="form-control"
-                                        id="message"
-                                        rows="4"
-                                        placeholder="¿En qué podemos ayudarte?"
-                                        required
-                                    ></textarea>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg">
-                                        Enviar Mensaje
-                                    </button>
-                                </div>
-                            </form>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            Enviar Mensaje
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-md-6 mb-4">
-                            <div class="contact-info-card">
+                        <div class="col-md-5 d-flex flex-column justify-content-between">
+                            <div class="contact-info-card mb-4">
                                 <div class="info-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <h5 class="info-title">Correo</h5>
                                 <p class="info-text">contacto@productoracultiva.com.mx</p>
                             </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
                             <div class="contact-info-card">
                                 <div class="info-icon">
                                     <i class="fas fa-phone-alt"></i>
@@ -497,7 +497,8 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start">
                         <p class="mb-0">
-                            &copy; 2025 Productora Cultiva. Todos los derechos reservados.
+                            &copy; <span id="anio"></span> Productora Cultiva. Todos los derechos
+                            reservados.
                         </p>
                     </div>
                     <div class="col-md-6 text-center text-md-end">

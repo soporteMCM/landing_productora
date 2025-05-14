@@ -124,7 +124,7 @@ const showExito = () => {
         document.querySelectorAll(".form-control").forEach((campo) => {
             campo.classList.remove("is-valid")
         })
-        document.body.removeChild(dialogo)
+        if (dialogo) document.body.removeChild(dialogo)
     })
     setTimeout(() => {
         document.querySelector("#contactForm").reset()
@@ -134,7 +134,7 @@ const showExito = () => {
         modal.hide()
     }, 3000)
     setTimeout(() => {
-        document.body.removeChild(dialogo)
+        if (dialogo) document.body.removeChild(dialogo)
     }, 4000)
 }
 
